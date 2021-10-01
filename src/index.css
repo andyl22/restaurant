@@ -16,6 +16,12 @@ html, body {
     width: 100%;
 }
 
+#content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
 body {
     display: flex;
     background-image: url('./Background.jpg');
@@ -50,7 +56,7 @@ header {
     gap: 15px;
 }
 
-#tabsContainer {
+#tabs-button-container {
     display: flex;
     padding: 2px 5px 2px 5px;
     gap: 5px;
@@ -59,14 +65,30 @@ header {
 .tabs {
     height: 80px;
     width: 80px;
-    background: rgb(232, 156, 158);
+    background: rgb(242, 227, 228);
     border: 1px solid rgb(211, 198, 198);
     font-family: 'MyFont';
     font-size: 22px;
     border-radius: 16px;
 }
 
-.tabs:focus {
-    background: rgb(206, 99, 233);
+.tabs:hover {
+    color: white;
+    background: rgb(111, 50, 28);
+    transform: scale(1.05);
+}
+
+#tab-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0px;
+    background: rgba(213, 208, 208,0.3);
+}
+
+.selected {
+    color: white;
+    background: rgb(111, 50, 28);
     transform: scale(1.05);
 }

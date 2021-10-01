@@ -1,13 +1,10 @@
 import "./index.css";
-import ChristmasCookies from './christmas-cookies.jpg'
-
-const content = document.getElementById("content");
-createHeader(content);
 
 function createHeader() {
     const headerContent = document.createElement("header");
     createHeaderText();
     createTabs();
+    appendTo(content, headerContent);
 
     function createHeaderText() {
         const header = document.createElement("h1");
@@ -22,13 +19,13 @@ function createHeader() {
         headerContent.appendChild(createTabContainer());
 
         function createTabContainer() {
-            const tabsContainer = document.createElement("div");
-            tabsContainer.setAttribute("id", "tabsContainer");
-            return createTabElements(tabsContainer);
+            const tabsButtonContainer = document.createElement("div");
+            tabsButtonContainer.setAttribute("id", "tabs-button-container");
+            return createTabElements(tabsButtonContainer);
 
         }
 
-        function createTabElements(tabsContainer) {
+        function createTabElements(tabsButtonContainer) {
             addToContainer(
                 addButtonText(
                     addSelectors(
@@ -36,7 +33,7 @@ function createHeader() {
                     )
                 )
             );
-            return tabsContainer;
+            return tabsButtonContainer;
 
             function declareTabs() {
                 let tabOne = document.createElement("button");
@@ -63,16 +60,88 @@ function createHeader() {
             }
 
             function addToContainer(tabsArray) {
-                tabsArray.forEach(tab => tabsContainer.appendChild(tab));
+                tabsArray.forEach(tab => tabsButtonContainer.appendChild(tab));
             }
+
+        }
+    }
+}
+
+
+function setUpTabFunctionality() {
+    const tabFactory = tabId => {
+        return (tabId == "tab0") ? tab0() :
+        (tabId == "tab1") ? tab1() :
+        tab2();
+
+        function tab0() {
+            const aboutHeader = document.createElement("h2");
+            aboutHeader.textContent = "Homemade Cookies from San Francisco since 2014";
+            return aboutHeader;
+        }
+
+        function tab1() {
+            const menuHeader = document.createElement("h2");
+            menuHeader.textContent = "Our Seasonal Cookies";
+            return menuHeader;
+        }
+        
+        function tab2() {
+            const contactHeader = document.createElement("h2");
+            contactHeader.textContent = "Contact Us Now!";
+            return contactHeader;
         }
     }
 
-    content.appendChild(headerContent);
+    addListeners();
+    initiateTab("tab0");
+
+    function addListeners() {
+        let idCount = 0;
+        while (idCount<3) {
+            document.getElementById("tab"+idCount).addEventListener("click", selectTab)
+            idCount++;
+        }
+    }
+
+    function initiateTab() {
+        let tabContainer = createTabContainer();
+        tabContainer.appendChild(tabFactory("tab0"));
+        appendTo(content, tabContainer);
+        document.getElementById("tab0").classList.add("selected");
+    }
+
+    function selectTab(e) {
+        removeExistingContent();
+        let tabId = e.target.getAttribute("id");
+        let tabContainer = createTabContainer();
+        tabContainer.appendChild(tabFactory(tabId));
+        appendTo(content, tabContainer);
+        e.target.classList.add("selected");
+    }
+
+    function createTabContainer() {
+        let tabContainer = document.createElement("div");
+        tabContainer.setAttribute("id", "tab-container");
+        return tabContainer;
+    }
+
+    function removeExistingContent() {
+        if (document.getElementById("tab-container")) {
+            content.removeChild(document.getElementById("tab-container"));
+        }
+        let tabButtons = document.getElementById("tabs-button-container").childNodes;
+        tabButtons.forEach(button => (button.classList[0]) ? button.classList.remove("selected") : false);
+    }
+
 }
 
-// function createImage() {
-//     const myImage = new Image();
-//     myImage.src = ChristmasCookies;
-//     content.appendChild(myImage);
-// }
+// Used to append to global scope
+function appendTo(appendee, appending) {
+    appendee.appendChild(appending);
+}
+
+const content = document.getElementById("content");
+
+createHeader(content);
+setUpTabFunctionality();
