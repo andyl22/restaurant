@@ -58,13 +58,12 @@ header {
 }
 
 .tabs {
-    height: 80px;
-    width: 80px;
+    height: 40px;
+    width: 100px;
     background: rgb(242, 227, 228);
     border: 2px solid rgb(107, 64, 64);
     border-radius: 20px;
-    font-family: 'MyFont';
-    font-size: 22px;
+    font-size: 14px;
 }
 
 .tabs:hover {
@@ -100,6 +99,10 @@ h3 {
     justify-content: center;
 }
 
+#tab-container h3 {
+    background: rgba(0, 0, 0, 0.6);
+}
+
 @media (max-width: 700px) {
     #tab-container {
         width: 100%;
@@ -107,6 +110,5 @@ h3 {
 
     h3 {
         padding: 30px 50px;
-        background: black;
     }
 }

@@ -60,7 +60,7 @@ function createHeader() {
 
             function addButtonText(tabsArray) {
                 tabsArray[0].textContent = "Home";
-                tabsArray[1].textContent = "Menu";
+                tabsArray[1].textContent = "Seasonal";
                 tabsArray[2].textContent = "Contact";
                 return tabsArray;
             }
