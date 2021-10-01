@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/andyl22/restaurant#readme",
   "devDependencies": {
+    "css-loader": "^6.3.0",
+    "style-loader": "^3.3.0",
     "webpack": "^5.55.1",
     "webpack-cli": "^4.8.0"
   }

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./MagicOwlPersonalUse-WyO0O.otf') format('woff2'),
+      url('./my-font.otf') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    background-image: url('./Background.jpg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+}
+
+h1, h2 {
+    color: rgb(116 30 30);
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'MyFont';
+}
+
+h2 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background: rgb(217 215 151 / 81%);
+    padding: 15px 0px;
+}
