@@ -76,9 +76,18 @@ function createHeader() {
 
 function addFunctionalityToTabs() {
     const tabFactory = tabId => {
-        return (tabId == "tab0") ? tab0() :
+        let contentHeader = (tabId == "tab0") ? tab0() :
         (tabId == "tab1") ? tab1() :
         tab2();
+
+        let contentContainer = createContentContainer();
+
+        let content = (tabId == "tab0") ? content0() :
+        (tabId == "tab1") ? content1() :
+        content2();
+
+        content.forEach(element => contentContainer.appendChild(element));
+        return [contentHeader, contentContainer];
 
         function tab0() {
             const aboutHeader = document.createElement("h3");
@@ -97,6 +106,36 @@ function addFunctionalityToTabs() {
             contactHeader.textContent = "Contact Us Now!";
             return contactHeader;
         }
+
+        function createContentContainer() {
+            let subContainer = document.createElement("div");
+            subContainer.setAttribute("id", "sub-container");
+            return subContainer;
+        }
+
+        function content0() {
+            let contentArray = [];
+            let headerParagraph = document.createElement("p");
+            headerParagraph.textContent = "Homemade Cookies from San Francisco since 2014";
+            contentArray.push(headerParagraph);
+            return contentArray;
+        }
+
+        function content1() {
+            let contentArray = [];
+            let headerParagraph = document.createElement("p");
+            headerParagraph.textContent = "Our Seasonsal Cookies";
+            contentArray.push(headerParagraph);
+            return contentArray;
+        }
+        
+        function content2() {
+            let contentArray = [];
+            let headerParagraph = document.createElement("p");
+            headerParagraph.textContent = "Contact Us Now!";
+            contentArray.push(headerParagraph);
+            return contentArray;
+        }
     }
 
     initialTab();
@@ -104,7 +143,8 @@ function addFunctionalityToTabs() {
     
     function initialTab() {
         let contentContainer = createTabContainer();
-        contentContainer.appendChild(tabFactory("tab0"));
+        let tab = tabFactory("tab0");
+        tab.forEach(element => contentContainer.appendChild(element));
         appendTo(main, contentContainer);
         document.getElementById("tab0").classList.add("selected");
     }
@@ -121,7 +161,9 @@ function addFunctionalityToTabs() {
         removeExistingContent();
         let tabContainer = createTabContainer();
         let tabId = e.target.getAttribute("id");
-        tabContainer.appendChild(tabFactory(tabId));
+        let tab = tabFactory(tabId)
+        tabContainer.appendChild(tab[0]);
+        tabContainer.appendChild(tab[1]);
         appendTo(main,tabContainer);
         e.target.classList.add("selected");
     }
@@ -146,7 +188,6 @@ function appendTo(appendee, appending) {
     appendee.appendChild(appending);
 }
 
-const body = document.body;
 const main = document.getElementsByTagName("main")[0];
 const header = document.getElementsByTagName("header")[0];
 createHeader();
