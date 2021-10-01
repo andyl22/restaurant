@@ -42,7 +42,31 @@ h2 {
 header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     background: rgb(217 215 151 / 81%);
-    padding: 15px 0px;
+    padding-top: 15px;
+    gap: 15px;
+}
+
+#tabsContainer {
+    display: flex;
+    padding: 2px 5px 2px 5px;
+    gap: 5px;
+}
+
+.tabs {
+    height: 80px;
+    width: 80px;
+    background: rgb(232, 156, 158);
+    border: 1px solid rgb(211, 198, 198);
+    font-family: 'MyFont';
+    font-size: 22px;
+    border-radius: 16px;
+}
+
+.tabs:focus {
+    background: rgb(206, 99, 233);
+    transform: scale(1.05);
 }
