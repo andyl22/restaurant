@@ -9,6 +9,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family:'Times New Roman', Times, serif;
 }
 
 html, body {
@@ -19,6 +20,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    position: relative;
     background-image: url('./Background.jpg');
     background-repeat: repeat;
     background-position: center;
@@ -37,7 +39,6 @@ h1 {
 
 h2 {
     font-size: 18px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
@@ -45,8 +46,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    background: rgba(213, 185, 48, .8);
+    background: rgba(255, 175, 3, 0.8);
     gap: 5px;
     padding: 5px 0px;
 }
@@ -63,7 +63,7 @@ header {
     background: rgb(242, 227, 228);
     border: 2px solid rgb(107, 64, 64);
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .tabs:hover {
@@ -81,8 +81,8 @@ header {
 
 main {
     display: flex;
-    height: 100%;
-    justify-content: center;
+    flex-grow: 1;
+    align-items: flex-start;
     text-align: center;
     background: rgba(0 0 0 / 20%);
 }
@@ -97,33 +97,86 @@ main {
 }
 
 h3 {
-    padding: 30px 0px;
-    color: white;
-    font-size: 20px;
+    padding: 20px 0px;
+    color: rgb(255, 132, 0);
+    font-size: 28px;
     justify-content: center;
 }
 
+
 #tab-container h3 {
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(20, 1, 20, .6);
+}
+
+h2 {
+    font-size: 25px;
 }
 
 #sub-container {
     display: flex;
-    justify-content: center;
-    min-height: 30%;
-    width: 70%;
-    border: 15px solid rgba(213, 185, 48, .5);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 800px;
+    border: 15px solid rgba(141, 121, 20, 0.8);
     background: rgb(249, 250, 237);
     opacity: 100%;
-    padding: 30px;
+    padding: 30px 0px;
     margin: auto;
 }
 
+img {
+    width: 400px;
+    border: 5px solid rgb(83 74 70)
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+figcaption {
+    background: #140114d9;
+    color: rgb(255, 132, 0);
+    padding: 5px 0px;
+    font-weight: 600;
+}
+
+.figures-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+#home-page img {
+    width: 500px;
+    border: 5px solid rgb(83 74 70);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    padding: 5px 0px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
 @media (max-width: 850px) {
+
     #sub-container {
+        height: 100%;
         width: 100%;
         border: none;
-        padding: 0px;
+        padding: 30px 0px;
     }
 }
