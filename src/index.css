@@ -67,6 +67,7 @@ header {
 }
 
 .tabs:hover {
+    cursor: pointer;
     color: white;
     background: rgb(182, 57, 11);
     transform: scale(1.05);
