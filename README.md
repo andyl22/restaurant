@@ -1,1 +1,1 @@
-# restaurant
+# Bakery DOM Manipulation ProjectThis project demonstrates DOM manipulation via Javascript by the use of tabs to control content generation.
